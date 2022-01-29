@@ -10,27 +10,9 @@ L’enjeu ici est de permettre aux utilisateurs une meilleure visualisation du m
 En effet en parcourant les nombreuses pages d'offre sur les sites d'agences immobilières il est facile de se perdre. Notre but est donc de proposer une vue globale de ce qui est disponible en ce moment pour pouvoir adapter sa demande en fonction de ce qui est le plus rentable et le mieux pour soit.  
 
 
-« Le réchauffement climatique est le constat d’une augmentation de la température terrestre moyenne sur de longues périodes » 
-En effet il s’agit d’étudier ici les variations de température pour l’ensemble du globe et sur des temps longs (étude du climat à grande échelle) et non la variabilité des températures à l’échelle de quelques jours ou sur une saison (prévisions météorologiques) afin de constater ce dérèglement climatique et de prendre conscience de la réalité de cette catastrophe. 
-
-En effet cela entraine des crises sanitaires, écologiques et humanitaires que nous pouvons déjà observer, il est donc de notre devoir de changer les choses pour atténuer cette tendance.
-
-Pour procédé aux visualisations nous avons donc utilisés comme dit précédemment 2 jeux de données (disponible sur Kaggle) : city_temperature.csv([lien_kaggle](https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)) et worldcities.csv ([lien_kaggle](https://www.kaggle.com/juanmah/world-cities))que nous avons mergé en fonction des villes afin d’avoir les températures quotidiennes des grandes villes du monde de 1995 à 2020 avec leur coordonnées GPS respectives.
-
-Nous obtenons donc une dataframe df contenant comme variables : 
--	Region : ['Africa', 'Asia', 'Australia/South Pacific', 'Europe',  'Middle East', 'North America', 'South/Central America & Carribean']
--	Country : 97 Pays différents 
--	City : 128 grandes villes différentes
--	Month : Mois de l’année (de janvier 01 à décembre 12) 
--	Day : Jours d’un mois 
--	Year : de 1995 à 2020
--	AvgTemperature : Température en moyenne quotidienne en Kelvin (que nous avons convertie en dégrès pour que ça soit plus parlant) 
--	lat : latitude de la ville en question 
--	lng : longitude de la ville en question 
-
 <br>
 
-### La récupération des données
+### La récupération des données --> Scrapping
 
 
 Nos données sont issues de Kaggle.com, ainsi pour pouvoir les récupérer, il faut se connecter avec un compte.

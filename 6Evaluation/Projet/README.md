@@ -6,7 +6,7 @@ Pour notre projet de DataEngineer Tools nous avons décidé de nous intéresser 
 
 Nous avons donc scrappé les informations concernant les maisons à vendre sur le site en question en nous focalisant sur le prix, la taille (en m2), le nombre de chambre, le nombre de pièce et la localisation avec la ville et le code postal. 
 
-L’enjeu ici est de permettre aux utilisateurs une meilleure visualisation du marchés immobilier actuel à l'aide de plusieurs indicateurs/visualisation différent.
+L’enjeu ici est de permettre aux utilisateurs une meilleure visualisation du marchés immobilier actuel à l'aide de plusieurs indicateurs/filtres différent.
 En effet en parcourant les nombreuses pages d'offre sur les sites d'agences immobilières il est facile de se perdre. Notre but est donc de proposer une vue globale de ce qui est disponible en ce moment pour pouvoir adapter sa demande en fonction de ce qui est le plus rentable et le mieux pour soit.  
 
 

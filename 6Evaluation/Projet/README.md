@@ -2,7 +2,27 @@
 
 *Introduction* 
 
-Pour notre projet de DataEngineer Tools nous avons décidé de nous intéresser aux biens immobilier à vendre dans les 10 plus grandes villes de France disponiblesur le site particulieraparticulier.fr ([lien](https://www.pap.fr/annonce/vente-maisons-paris-75-g439)) 
+Pour notre projet de DataEngineer Tools nous avons décidé de nous intéresser aux biens immobilier à vendre dans les 10 plus grandes villes de France disponible sur le site particulieraparticulier.fr ([lien](https://www.pap.fr/annonce/vente-maisons-paris-75-g439)) 
+Notre but ici n'était pas de recréer un site avec des offres immobiliers, mais plutôt de créer un outil d'analyse et de permettre aux utilisateurs une meilleure visualisation du marchés immobilier actuel à l'aide de plusieurs indicateurs/filtres différent.
+En effet en parcourant les nombreuses pages d'offre sur les sites d'agences immobilières il est facile de se perdre. Notre but est donc de proposer une vue globale de ce qui est disponible en ce moment pour pouvoir adapter sa demande en fonction de ce qui est le plus rentable et le mieux pour soit.
+
+Ainsi l'utilisateur peut regarder si les offres sur le site particulieràparticuliersuivent l'évolution du marchés immobilier. En effet, grâce au fichier scrappy.py l'utilisateur peut à tout moment récupérer les offres du site juste en l'exécutant.
+Pouvoir scrapper les données lorsque l'on veut permet d'avoir des données qui évoluent au fur et à mesure du temps.
+
+Nous avons donc scrappé les informations concernant les maisons à vendre sur le site en question en nous focalisant sur le prix, la taille (en m2), le nombre de chambre, le nombre de pièce et la localisation avec la ville et le code postal.
+Pour avoir des données actualiser :
+L'utilisateur devra juste changer le nom du fichier json qu'il va générer a la fin du code qui par défaut sera nommé scrapping.json.
+Il devra ensuite mettre le même nom qu'il a choisit dans le début du code python et changer le nom de la collection qui sera immobilier de base par immobilier_v1, immobilier_v2 et ainsi de suite
+
+Une fois les données du du site particulier à particulier scrappé, nous avons un dictionnaire de liste qui se compose de la manière suivante:
+-    le lieux
+-    la ville
+-    le code postal
+-    le prix
+-    la description
+-    le nombre de pièce
+-    le nombre de chambre
+-    le nombre de m2
 
 Nous avons donc scrappé les informations concernant les maisons à vendre sur le site en question en nous focalisant sur le prix, la taille (en m2), le nombre de chambre, le nombre de pièce et la localisation avec la ville et le code postal. 
 
@@ -12,59 +32,15 @@ En effet en parcourant les nombreuses pages d'offre sur les sites d'agences immo
 
 <br>
 
-### La récupération des données --> Scrapping
-
-
-Nos données sont issues de Kaggle.com, ainsi pour pouvoir les récupérer, il faut se connecter avec un compte.
-Pour récupérer directement les données sur internet nous devons utiliser l’API de Kaggle, pour cela nous devons obtenir un token et grâce à ce token nous pouvons directement récupérer les données sur notre machine.
-Afin d’éviter d’avoir plusieurs erreurs et améliorer la performance de notre code nous avons décidé de mettre les jeux de données localement avec notre code.
-<br>
-
-### User Guide
-
-*Installation*
-
-Pour pouvoir avoir accès au dashboard il vaus faut suivre les étapes suivantes : 
-
-
-*  Copier le projet sur votre machine grace à la commande :
-
-* [ ]  `$ git clone https://git.esiee.fr/kulaveen/projet_python_e4`
-
-* Verifiez que les fichiers suivant soit dans le même repertoire : 
-
-* [ ]  `city_temperature.csv`
-* [ ]  `worldcities.csv`
-* [ ]  `main.py`
-
-*  Sur VisualStudioCode ouvrir le projet que vous venez de téléchargé : File > Open Folder... séléctionner le fichier téléchargé
-
-* Avant de pouvoir lancer le projet il faut au préalable installer les packages nécéssaires. Pour cela taper les commande suivantes dans votre console : 
-
-* [ ]  `pip install dash`
-
-* [ ]   `pip install plotly`
-
-* [ ]  `pip install pandas`
-
-* [ ]  `pip install numpy`
-
-* [ ]  `pip install seaborn`
-
-* A partir du Terminal sous VisualStudioCode lancer le script grace à la command e
-
-* [ ] `python3 main.py` pour Linux
-* [ ] `python main.py`  pour Windows
-
-* A la fin de l'éxécution du script, l'adresse http://127.0.0.1:8050/ est renvoyée. Utilisez cette adresse pour visualiser le DashBoard.
-
-
-<br>
 
 
 ### Developper Guide
 
-Pour comprendre le programme, nous allons nous intéresser à quatre points qui sont le **traitement de données**, **les figures**, **le layout** et **les callbacks/updates**.
+Pour comprendre le programme, nous allons nous intéresser à quatre points qui sont le **scraping**, **la base données Mango/requetes**, **le layout** et **les callbacks/updates**.
+
+**MongoDB**: 
+Mango est une base de données NosSQL orientée document. Elle se distingue des bases de données relationnelles par sa flexibilité et ses performances.
+Nous l'avons utilisé ici pour regrouper toutes nos données scrapées dans une collection. De ce fait nous avons pu 
 
 **Traitement de données**:
 Cette étape est primordiale pour le bon déroulement du projet, cela se passe directement après les imports et commence avec des *pd.read_csv*.
@@ -80,7 +56,7 @@ Ainsi, si vous voulez ajouter des figures, graphiques, c’est dans cette partie
 
 **Le layout**:
 app.layout permet de structurer le dashboard et décide de ce qui doit être affiché sur l’écran de l’utilisateur.
-Dans cette partie on a :
+Dans cette partie on a 
 - le titre du dashboard avec *html.H1*
 - les description et les zones de textes avec *html.Div*
 - la représentation du début de notre dashboard avec *dash_table.DataTable*
@@ -98,6 +74,7 @@ Cette partie est l’élément clé pour avoir un dashboard interactif.
 
 *Conclusion*
 
+
 L'Organisation météorologique mondiale a annoncé que les 10 années se terminant à partir de fin 2019 sont les 10 années les plus chaudes de l'histoire mondiale.
 En effet avec nos visualisations nous avons pu observer que la température moyenne mondiale augmente de façon alarmante au cours des deux dernières décennies. 
 En analysant les graphiques on observe que toutes les régions sont touchées par ce réchauffement climatique dans une certaine mesure. Dans certaines régions, la température a augmenté plus rapidement, les cas les plus notoires sont : l'Asie, le Moyen-Orient, l'Amérique du Nord et l'Europe. En effet il s'agit des régions les plus développées donc avec une dynamique économique élévée (industries lourdes, import, export, ...) .
@@ -108,13 +85,4 @@ Il serait donc intéressant, lorsque ce dataset sera mis à jour, de voir quel i
 
 Il serait également intéressant de pouvoir utilisé ce jeu de données pour pouvoir prédire l’évolution des températures dans les années à venir pour avoir une idée de ce qui nous attend si nous n’agissons pas maintenant. 
 Pour cela nous pourrions utiliser les années 1995 à 2014 comme données d’entrainement et valider notre algorithme grâces aus données des années 2015 à 2019. 
-
-
-
-
-
-Dans le cadre de notre projet DataEngineerTools nous avons créé une application web 
-Nous avons fais le choix de nous interesser aux biens immobiliers à vendre dans les 10 plus grandes villes de France proposé par le site Particulier a particulier. 
-
-Nous avons donc scrappé les informations concernant les maisons à vendre sur le site en question en nous focalisant sur le prix, la taille (en m2), le nombre de chambre, le nombre de pièce et la localisation avec la ville et le code postal. 
 

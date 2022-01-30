@@ -39,7 +39,7 @@ Pour pouvoir avoir accès au dashboard il vaus faut suivre les étapes suivantes
 
 * Verifiez que les fichiers suivant soit dans le même repertoire : 
 
-* [ ]  `scrappy.py``
+* [ ]  `scrappy.py`
 * [ ]  `app.py`
 
 * Ouvrez votre terminal anaconda et taper la commande suivante : 
